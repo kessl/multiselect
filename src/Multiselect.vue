@@ -12,6 +12,9 @@
     <div
       :class="classList.wrapper"
       @mousedown="handleMousedown"
+      @drop="handleDrop"
+      @dragenter.prevent
+      @dragover.prevent
       ref="wrapper"
 
       :tabindex="tabindex"
@@ -69,6 +72,9 @@
               tabindex="-1"
               @keyup.enter="handleTagRemove(option, $event)"
               :key="key"
+
+              draggable="true"
+              @dragstart="handleDragStart($event, option)"
 
               :aria-label="ariaTagLabel(localize(option[label]))"
             >

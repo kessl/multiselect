@@ -3,6 +3,7 @@ import normalize from './../utils/normalize'
 import isObject from './../utils/isObject'
 import isNullish from './../utils/isNullish'
 import arraysEqual from './../utils/arraysEqual'
+import minBy from './../utils/minBy'
 
 export default function useOptions (props, context, dep)
 {
@@ -304,6 +305,34 @@ export default function useOptions (props, context, dep)
     }
 
     remove(option)
+  }
+
+  const handleDragStart = (e, option) => {
+    e.dataTransfer.setData('text/plain', option.value)
+  }
+
+  const handleDrop = (e) => {
+    e.preventDefault()
+    const tagElements = [...e.target.closest('[data-tags]').querySelectorAll('.multiselect-tag')]
+    const gaps = tagElements.reduce((acc, current, index) => {
+      const rect = current.getBoundingClientRect()
+      const yAvg = (rect.top + rect.bottom) / 2
+      const left = { order: index, x: rect.left, y: yAvg }
+      const right = { order: index + 1, x: rect.right, y: yAvg }
+      return acc.concat(left, right)
+    }, [])
+    gaps.forEach(gap => {
+      gap.distance = Math.hypot(gap.x - e.clientX, gap.y - e.clientY)
+    })
+
+    const closestGap = minBy(gaps, (gap) => gap.distance)
+    const value = e.dataTransfer.getData('text/plain')
+    const draggedOptionIndex = iv.value.findIndex(option => option[valueProp.value] === value)
+    if (draggedOptionIndex === closestGap.order || draggedOptionIndex === closestGap.order - 1) return
+
+    const draggedOption = iv.value.splice(draggedOptionIndex, 1)[0]
+    iv.value.splice(closestGap.order, 0, draggedOption)
+    update(iv.value)
   }
 
   const clear = () => {
@@ -849,6 +878,8 @@ export default function useOptions (props, context, dep)
     handleOptionClick,
     handleGroupClick,
     handleTagRemove,
+    handleDragStart,
+    handleDrop,
     refreshOptions,
     resolveOptions,
     refreshLabels,
