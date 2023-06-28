@@ -22,7 +22,7 @@
   </a>
 
   <h1>Vue 3 Multiselect</h1>
-  
+
   <a href="https://vueform.com?ref=github" target="_blank">
     <br>
     <img align="center" src="https://github.com/vueform/multiselect/raw/main/assets/logo.svg" width="110">
@@ -328,6 +328,7 @@ Join our [Discord channel](https://discord.gg/WhX2nG6GTQ) or [open an issue](htt
 | **object** | `{boolean} false` | Whether the value should be stored as an object.<br>If **false**:<br>`value: ['js','jsx','ts']`<br>If **true**:<br> `value: [`<br>&nbsp;&nbsp;`{value:'js',label:'Javascript'},`<br>&nbsp;&nbsp;`{value:'jsx',label:'JSX'},`<br>&nbsp;&nbsp;`{value:'ts',label:'Typescript'}`<br>`]` |
 | **attrs** | `{object} {}` | HTML attributes to add to the `input` field when `search` is enabled. |
 | **nativeSupport** | `{boolean} false` | Whether hidden input fields should be appended to achieve native data handling. |
+| **sortable** | `{boolean} false` | Whether tags may be sorted by drag & drop. |
 
 ## API methods
 
@@ -439,7 +440,7 @@ The following CSS variables can be used to customize multiselect when using `def
 --ms-caret-color: #999999;
 --ms-clear-color: #999999;
 --ms-clear-color-hover: #000000;
-  
+
 --ms-tag-font-size: 0.875rem;
 --ms-tag-line-height: 1.25rem;
 --ms-tag-font-weight: 600;

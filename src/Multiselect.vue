@@ -73,7 +73,7 @@
               @keyup.enter="handleTagRemove(option, $event)"
               :key="key"
 
-              draggable="true"
+              :draggable="sortable || undefined"
               @dragstart="handleDragStart($event, option)"
 
               :aria-label="ariaTagLabel(localize(option[label]))"
@@ -370,6 +370,11 @@
         default: 'single', // single|multiple|tags
       },
       searchable: {
+        type: Boolean,
+        required: false,
+        default: false,
+      },
+      sortable: {
         type: Boolean,
         required: false,
         default: false,
