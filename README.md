@@ -328,7 +328,7 @@ Join our [Discord channel](https://discord.gg/WhX2nG6GTQ) or [open an issue](htt
 | **object** | `{boolean} false` | Whether the value should be stored as an object.<br>If **false**:<br>`value: ['js','jsx','ts']`<br>If **true**:<br> `value: [`<br>&nbsp;&nbsp;`{value:'js',label:'Javascript'},`<br>&nbsp;&nbsp;`{value:'jsx',label:'JSX'},`<br>&nbsp;&nbsp;`{value:'ts',label:'Typescript'}`<br>`]` |
 | **attrs** | `{object} {}` | HTML attributes to add to the `input` field when `search` is enabled. |
 | **nativeSupport** | `{boolean} false` | Whether hidden input fields should be appended to achieve native data handling. |
-| **sortable** | `{boolean} false` | Whether tags may be sorted by drag & drop. |
+| **draggable** | `{boolean} false` | Whether tags may be sorted by drag & drop. |
 
 ## API methods
 

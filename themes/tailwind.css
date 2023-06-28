@@ -44,9 +44,12 @@
 .multiselect-tag.is-disabled {
   @apply pr-2 opacity-50 rtl:pl-2;
 }
+.multiselect-tag.is-draggable {
+  @apply cursor-move;
+}
 
 .multiselect-tag-remove {
-  @apply flex items-center justify-center p-1 mx-0.5 rounded-sm hover:bg-black hover:bg-opacity-10;
+  @apply flex items-center justify-center p-1 mx-0.5 rounded-sm hover:bg-black hover:bg-opacity-10 cursor-pointer;
 }
 
 .multiselect-tag-remove-icon {

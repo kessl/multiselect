@@ -67,13 +67,14 @@
             <span
               :class="[
                 classList.tag,
+                draggable ? classList.tagDraggable : null,
                 option.disabled ? classList.tagDisabled : null,
               ]"
               tabindex="-1"
               @keyup.enter="handleTagRemove(option, $event)"
               :key="key"
 
-              :draggable="sortable || undefined"
+              :draggable="draggable || undefined"
               @dragstart="handleDragStart($event, option)"
 
               :aria-label="ariaTagLabel(localize(option[label]))"
@@ -374,7 +375,7 @@
         required: false,
         default: false,
       },
-      sortable: {
+      draggable: {
         type: Boolean,
         required: false,
         default: false,

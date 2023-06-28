@@ -131,6 +131,10 @@
     background: var(--ms-tag-bg-disabled, #9CA3AF);
     color: var(--ms-tag-color-disabled, #FFFFFF);
   }
+
+  &.is-draggable {
+    cursor: move;
+  }
 }
 
 .multiselect-tag-remove {
@@ -140,6 +144,7 @@
   padding: var(--ms-tag-remove-py, 0.25rem) var(--ms-tag-remove-px, 0.25rem);
   margin: var(--ms-tag-remove-my, 0rem) var(--ms-tag-remove-mx, 0.125rem);
   border-radius: var(--ms-tag-remove-radius, 4px);
+  cursor: pointer;
   
   &:hover {
     background: #00000010;

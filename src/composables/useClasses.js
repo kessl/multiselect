@@ -30,6 +30,7 @@ export default function useClasses (props, context, dependencies)
     tags: 'multiselect-tags',
     tag: 'multiselect-tag',
     tagDisabled: 'is-disabled',
+    tagDraggable: 'is-draggable',
     tagRemove: 'multiselect-tag-remove',
     tagRemoveIcon: 'multiselect-tag-remove-icon',
     tagsSearchWrapper: 'multiselect-tags-search-wrapper',
@@ -96,6 +97,7 @@ export default function useClasses (props, context, dependencies)
       tag: [c.tag]
         .concat(disabled.value ? c.tagDisabled : []),
       tagDisabled: c.tagDisabled,
+      tagDraggable: c.tagDraggable,
       tagRemove: c.tagRemove,
       tagRemoveIcon: c.tagRemoveIcon,
       tagsSearchWrapper: c.tagsSearchWrapper,
