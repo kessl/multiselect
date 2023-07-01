@@ -313,7 +313,7 @@ export default function useOptions (props, context, dep)
 
   const handleDrop = (e) => {
     e.preventDefault()
-    const tagElements = [...e.target.closest('[data-tags]').querySelectorAll('.multiselect-tag')]
+    const tagElements = [...e.target.closest('[data-tags]').querySelectorAll('[draggable]')]
     const gaps = tagElements.reduce((acc, current, index) => {
       const rect = current.getBoundingClientRect()
       const yAvg = (rect.top + rect.bottom) / 2
@@ -326,6 +326,8 @@ export default function useOptions (props, context, dep)
     })
 
     const closestGap = minBy(gaps, (gap) => gap.distance)
+    if (closestGap === undefined) return
+
     const value = e.dataTransfer.getData('text/plain')
     const draggedOptionIndex = iv.value.findIndex(option => option[valueProp.value] === value)
     if (draggedOptionIndex === closestGap.order || draggedOptionIndex === closestGap.order - 1) return

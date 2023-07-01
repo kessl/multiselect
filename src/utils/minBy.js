@@ -8,5 +8,5 @@ export default function minBy (arr, fn) {
     } else {
        return pair
     }
-  }, null)[1]
+  }, [])[1]
 }
